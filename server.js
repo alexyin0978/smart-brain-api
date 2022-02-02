@@ -57,8 +57,8 @@ app.put('/image',image.handleImage(db))
 //把api key資訊留在server,以免外流
 app.post('/imageurl',image.handleImageUrl)
 
-app.listen(3000, () => {
-    console.log('working good!')
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`app is running on port:${process.env.PORT}`)
 })
 
 

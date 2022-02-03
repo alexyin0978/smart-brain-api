@@ -14,13 +14,12 @@ const app = express();
 const db = knex({
     client: 'pg', //postgresql
     connection: {
-        host : '127.0.0.1', //localhost
-        port : 5432, //port of database 
-        user : 'matt3982', //laptop username
-        password : '', //if no, leave it empty
-        database : 'smart-brain'
-    }
-})
+      connectionString: process.env.DATABASE_URL,
+          ssl: {
+            rejectUnauthorized: false
+          }
+      }
+  })
 
 //parse進來的json檔
 app.use(express.json());

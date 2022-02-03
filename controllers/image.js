@@ -7,6 +7,9 @@ const app = new Clarifai.App({
 
 //faceRecoginition api
 const handleImageUrl = (req,res) => {
+    if(!req.body.input){
+        return res.status(400).json("Wrong Url format")
+    }
     app.models.predict(Clarifai.FACE_DETECT_MODEL,req.body.input)
     //Clarifai.FACE_DETECT_MODEL應該可換為'53e1df302c079b3db8a0a36033ed2d15'
     .then(resp => res.json(resp))

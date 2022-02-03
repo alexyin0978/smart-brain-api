@@ -1,7 +1,7 @@
 const handleSignin = (db,bcrypt) => (req,res)=>{
     const {email, password} = req.body; //destructure 登入的email與password
     if(!email || !password){
-        res.status(400).json('Incorrect Submission')
+        return res.status(400).json('Incorrect Submission')
     }
     db.select('email','hash').from('login') //在db-login撈出該user的email與hash以供與登入資料比對
       .where({'email': email}) //另一寫法 -> .where('email', '=', email)

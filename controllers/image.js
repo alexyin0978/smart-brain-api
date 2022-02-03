@@ -13,7 +13,8 @@ const handleImageUrl = (req,res) => {
     app.models.predict(Clarifai.FACE_DETECT_MODEL,req.body.input)
     //Clarifai.FACE_DETECT_MODEL應該可換為'53e1df302c079b3db8a0a36033ed2d15'
     .then(resp => res.json(resp))
-    .catch(err => res.status(400).json(""))
+    .catch(err => res.status(400).json("")) 
+    //catch裡的res留空'',在前端才可透過if來避免在url不正確仍entries+1的情況
 }
 
 const handleImage = (db) => (req,res) => {

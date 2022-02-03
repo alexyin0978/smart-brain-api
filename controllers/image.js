@@ -13,7 +13,7 @@ const handleImageUrl = (req,res) => {
     app.models.predict(Clarifai.FACE_DETECT_MODEL,req.body.input)
     //Clarifai.FACE_DETECT_MODEL應該可換為'53e1df302c079b3db8a0a36033ed2d15'
     .then(resp => res.json(resp))
-    .catch(err => res.status(400).json("Unalble to get API"))
+    .catch(err => res.status(400).json(""))
 }
 
 const handleImage = (db) => (req,res) => {
